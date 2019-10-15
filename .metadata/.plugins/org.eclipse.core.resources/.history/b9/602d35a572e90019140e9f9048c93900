@@ -1,0 +1,64 @@
+package dataProvider_Example;
+
+
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class DataProviderDemo {
+	WebDriver Driver = null;
+	
+	@Test(dataProvider = "heatclinic")
+	public void heatClinicLogin(String username,String password) {
+		//System.setProperty("webdriver.chrome.driver", "/Users/mamun79/Downloads/chromedriver");
+	    System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/driver/chromedriver");
+		
+	WebDriver driver = new ChromeDriver();
+	  //WebDriver driver = new SafariDriver();
+	
+	
+//         String projectPath = System.getProperty("user.dir");
+//	System.setProperty("webdriver.chrome.driver", System.getProperty(projectPath) + "/Downloads/chromedriver");
+	
+	
+	
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	driver.get("https://heatclinic.shiftedtech.com/login");
+		
+	driver.findElement(By.name("j_username")).sendKeys("username");	
+	driver.findElement(By.name("j_password")).sendKeys("password");
+	driver.findElement(By.className("login_button big red")).click();
+		
+		
+		
+		
+	}
+	
+	
+	@DataProvider(name = "heatclinic")
+	public Object [][] passData(){
+		
+		Object [][] data = new Object [1][2];
+		
+		data [0][0] ="shafee@gmail.com";
+		data [0][1] = "shafee";
+		
+		return data;
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}

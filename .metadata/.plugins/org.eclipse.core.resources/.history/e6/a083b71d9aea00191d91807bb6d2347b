@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package javaProgrammingExample;
+
+/**
+ * @author mamun79
+ *
+ */
+public class LargestOf3Numbers {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
